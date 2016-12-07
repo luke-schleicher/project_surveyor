@@ -1,0 +1,21 @@
+<%= render partial: "shared/header", locals: { survey: @survey } %>
+
+<%= form_for [@survey, @question] do |f| %>
+  
+  <%= f.label :query, "What is your question?" %>
+  <%= f.text_field :query %>
+
+  <%= f.fields_for :multiple_choice_answer, MultipleChoiceAnswer.new do |a| %>
+
+    <% @question.multiple_choice_question[:num_options].times do |i| %>
+
+      <%= a.label :option, "Option #{ i + 1 }" %>
+      <%= a.text_field :option %>
+
+    <% end %>
+
+    <%= f.submit "Add Question" %>
+
+  <% end %>
+
+<% end %>

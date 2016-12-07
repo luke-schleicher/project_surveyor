@@ -1,0 +1,37 @@
+<%= render partial: 'shared/header', locals: { survey: @survey } %>
+
+<h2>Add a Question:</h2>
+
+<p>Choose which type of question to add.</p>
+
+  <form accept-charset="UTF-8" action="/surveys/<%= @survey.id %>/questions/new" method="get">
+
+    <select name="question_type">
+      <option value="Multiple Choice">Multiple Choice</option>
+      <option value="Range">Range</option>
+    </select>
+
+    <button type="submit">Add a New Question</button>
+
+  </form>
+
+<% if @questions.any? %>
+  
+  <% @questions.each do |q| %>
+
+    <h3><%= q.query %></h3>
+
+  <% end %>
+
+<% else %>
+
+  <h2>Existing Questions</h2>
+
+  <p>There are no questions yet!</p>
+
+<% end %>
+
+<br>
+<br>
+<br>
+<br>

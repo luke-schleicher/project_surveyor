@@ -1,0 +1,17 @@
+<%= render partial: 'shared/header', locals: { survey: @survey } %>
+
+<%= form_for @survey do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, placeholder: "eg. \"The personality test\"" %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, placeholder: "eg. \"Discovering what is unique and special about all you crazy people \"" %>
+
+  <%= f.submit "Create Survey and Begin Adding Questions" %>
+
+<% end %>
+
+
+
+

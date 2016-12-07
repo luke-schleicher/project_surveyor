@@ -1,0 +1,22 @@
+<h1>Survey Builder</h1>
+
+<hr>
+
+<p>1. Build Survey | 2. Add Questions</p>
+
+<p>First choose a title and a description for your survey</p>
+
+<p>Next, fill in the questions.</p>
+
+<% if survey.persisted? %>
+
+  <h2>Title:</h2>
+  <p><%= survey.title %></p>
+
+  <h2>Description:</h2>
+  <p><%= survey.description %></p>
+
+  <hr>
+
+<% end %>
+

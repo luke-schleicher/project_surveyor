@@ -1,0 +1,26 @@
+<%= render partial: "shared/header", locals: { survey: @survey } %>
+
+
+<% if params["question_type"] == "Multiple Choice" %>
+
+  <%= form_for [@survey, @question] do |f| %>
+
+    <%= f.fields_for :multiple_choice_question, MultipleChoiceQuestion.new do |q| %>
+
+      <%= q.label :num_options, "How many options should the question have?" %>
+      <%= q.select :num_options, @num_options %>
+
+      <%= q.label :multiple, "How many options should the question have?" %>
+      <%= q.check_box :multiple %>
+
+    <% end %>
+
+    <%= f.label :required, "Is the question required?" %>
+    <%= f.check_box :required %>
+
+    <%= f.submit "Continue to the Next Step" %>
+
+  <% end %>
+
+<% elsif params["question_type"] == "Range" %>
+<% end %>
